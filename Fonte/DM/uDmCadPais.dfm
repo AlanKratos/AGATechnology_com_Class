@@ -1,0 +1,2 @@
+inherited dmCadPais: TdmCadPais
+end
