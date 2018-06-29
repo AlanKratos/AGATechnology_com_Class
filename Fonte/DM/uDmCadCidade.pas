@@ -37,6 +37,8 @@ procedure TdmCadCidade.DataModuleCreate(Sender: TObject);
 begin
   inherited;
   QueryCadastro.SQL.Add(TClassCidade.SQLBaseCadastro);
+  TClassCidade.AdicionarCampos(QueryCadastro);
+
   tabela := TClassCidade.TabelaPrincipal;
   campochave := TClassCidade.CampoChave;
   TipoCadastro := TClassCidade.TipoCadastro;

@@ -32,6 +32,8 @@ type
 
 }
   TClassPaiCadastro = class(TClassPai)
+  private
+    procedure AdicionarFields(const bVerificarSeJaExiste: Boolean);
   public
     class function Descricao: string; virtual;
     class function TabelaPrincipal: string; virtual;
@@ -49,6 +51,9 @@ type
     class function CriarParametros(ATFDQuery: TFDQuery): string;
 
     class procedure ConfigurarPropriedadesDoCampo(CDS: TDataSet); virtual;
+
+    class procedure AdicionarCampos(VerificarSeJaExiste: Boolean); virtual;
+
   end;
 
   TFClassPaiCadastro = class of TClassPaiCadastro;
@@ -117,6 +122,26 @@ begin
     //
 end;
 
+class procedure TClassPaiCadastro.AdicionarCampos(VerificarSeJaExiste: Boolean);
+var
+  X: Integer;
+begin
+  // Atualizando os tipos dos TFields, conforme tipos dos campos definidos no banco de dados
+  Active := False;
+  FieldDefs.Update;
+
+  // Criar os TFields inserindo-os no DataSet.
+  for X := 0 to FieldDefs.Count - 1 do
+    if (not VerificarSeJaExiste) or (FindField(FieldDefs[x].Name) = nil) then
+      FieldDefs.Items[X].CreateField(Self);
+end;
+
+procedure TClassPaiCadastro.AdicionarFields(
+  const bVerificarSeJaExiste: Boolean);
+begin
+
+end;
+
 class function TClassPaiCadastro.CampoChave: string;
 begin
   Result := '';
@@ -131,5 +156,8 @@ class function TClassPaiCadastro.SQLBaseConsulta: string;
 begin
   Result := '';
 end;
+
+
+
 end.
 

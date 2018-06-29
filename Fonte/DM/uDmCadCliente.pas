@@ -21,29 +21,7 @@ type
     dsMaster: TDataSource;
     FDQueryValidaCidade: TFDQuery;
     FDSchemaAdapterCliente: TFDSchemaAdapter;
-    QueryEnderecoDESCRICAO_CIDADE: TStringField;
-    QueryEnderecoENDERECO_PESSOA_ENDERECO: TStringField;
-    QueryEnderecoNUMERO_PESSOA_ENDERECO: TStringField;
-    QueryEnderecoCOMPLEMENTO_PESSOA_ENDERECO: TStringField;
-    QueryEnderecoBAIRRO_PESSOA_ENDERECO: TStringField;
-    QueryEnderecoCIDADE_PESSOA_ENDERECO: TIntegerField;
     FDQueryValidaUf: TFDQuery;
-    QueryEmailCODIGO_PESSOA_EMAIL: TIntegerField;
-    QueryEmailCOD_PESSOA_EMAIL: TIntegerField;
-    QueryEmailEMAIL_PESSOA_EMAIL: TStringField;
-    QueryEmailPRINCIPAL_PESSOA_EMAIL: TStringField;
-    QueryEmailCOBRANCA_PESSOA_EMAIL: TStringField;
-    QueryEmailDOCUMENTOSFISCAIS_PESSOA_EMAIL: TStringField;
-    QueryEmailPEDIDOCOMPRA_PESSOA_EMAIL: TStringField;
-    QueryEmailPEDIDOVENDA_PESSOA_EMAIL: TStringField;
-    QueryEmailMALADIRETA_PESSOA_EMAIL: TStringField;
-    QueryTelefoneCODIGO_PESSOA_TELEFONE: TIntegerField;
-    QueryTelefoneCOD_PESSOA_TELEFONE: TIntegerField;
-    QueryTelefoneNUMERO_PESSOA_TELEFONE: TStringField;
-    QueryTelefoneCELULAR_PESSOA_TELEFONE: TStringField;
-    QueryTelefoneOBSERVACAO_PESSOA_TELEFONE: TStringField;
-    QueryTelefonePADRAO_PESSOA_TELEFONE: TStringField;
-    QueryTelefoneTIPO_PESSOA_TELEFONE: TStringField;
     procedure QueryCadastroNewRecord(DataSet: TDataSet);
     procedure QueryEnderecoNewRecord(DataSet: TDataSet);
     procedure QueryEnderecoBeforeEdit(DataSet: TDataSet);
@@ -94,13 +72,11 @@ procedure TdmCadCliente.DataModuleCreate(Sender: TObject);
 begin
   inherited;
   //QueryCadastro.Fields.Add(TClassPessoa.SQLBaseCadastro);
-
   //QueryCadastro.DataSetField.Create(TClassPessoa.CamposCadastro);
 
-    ClassEndPessoa := TClassPessoa_Endereco.Create;
 
-    ClassEndPessoa.CriarParametros(QueryEndereco);
-
+  ClassEndPessoa := TClassPessoa_Endereco.Create;
+  ClassEndPessoa.CriarParametros(QueryEndereco);
   QueryCadastro.SQL.Add(TClassPessoa.SQLBaseCadastro);
 
   tabela := TClassPessoa.TabelaPrincipal;

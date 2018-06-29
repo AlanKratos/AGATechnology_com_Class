@@ -4,7 +4,7 @@ object dmConexao: TdmConexao
   Width = 384
   object FDConexao: TFDConnection
     Params.Strings = (
-      'Database=D:\Sistema\AGATechnology com class\Banco\SISTEMA.FDB'
+      'Database=D:\Sistema\AGATechnology_com_class\Banco\SISTEMA.FDB'
       'User_Name=sysdba'
       'Password=masterkey'
       'CharacterSet=iSO8859_1'
