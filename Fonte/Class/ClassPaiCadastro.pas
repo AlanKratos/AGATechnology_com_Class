@@ -2,8 +2,8 @@ unit ClassPaiCadastro;
 
 interface
 
-uses Classes, Data.DB, System.SysUtils, System.Classes, System.DateUtils, System.Variants, DB, SysUtils, DBClient,
-     StrUtils, Variants, FMTBcd, Controls, SqlTimSt, SqlExpr, TypInfo, Rtti, FireDAC.Comp.DataSet,
+uses Data.DB, System.SysUtils, System.Classes, System.DateUtils, System.Variants, DBClient,
+     StrUtils, FMTBcd, Controls, SqlTimSt, SqlExpr, TypInfo, Rtti, FireDAC.Comp.DataSet,
      FireDAC.Comp.Client, ClassPai;
 
 type
