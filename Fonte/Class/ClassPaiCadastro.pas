@@ -2,8 +2,9 @@ unit ClassPaiCadastro;
 
 interface
 
-uses Classes, DB, SysUtils, DBClient, StrUtils, Variants, FMTBcd, Controls, SqlTimSt, SqlExpr, TypInfo, Rtti,
-  FireDAC.Comp.DataSet, FireDAC.Comp.Client, ClassPai;
+uses Classes, Data.DB, System.SysUtils, System.Classes, System.DateUtils, System.Variants, DB, SysUtils, DBClient,
+     StrUtils, Variants, FMTBcd, Controls, SqlTimSt, SqlExpr, TypInfo, Rtti, FireDAC.Comp.DataSet,
+     FireDAC.Comp.Client, ClassPai;
 
 type
   TRotuloDescricao = record
@@ -31,6 +32,12 @@ type
 
 
 }
+  TDataSetHelper = class Helper for TDataSet
+  public
+    procedure AdicionarCampos(VerificarSeJaExiste: Boolean); virtual;
+  end;
+
+
   TClassPaiCadastro = class(TClassPai)
   private
     procedure AdicionarFields(const bVerificarSeJaExiste: Boolean);
@@ -52,7 +59,7 @@ type
 
     class procedure ConfigurarPropriedadesDoCampo(CDS: TDataSet); virtual;
 
-    class procedure AdicionarCampos(VerificarSeJaExiste: Boolean); virtual;
+
 
   end;
 
@@ -122,7 +129,7 @@ begin
     //
 end;
 
-class procedure TClassPaiCadastro.AdicionarCampos(VerificarSeJaExiste: Boolean);
+procedure TDataSetHelper.AdicionarCampos(VerificarSeJaExiste: Boolean);
 var
   X: Integer;
 begin

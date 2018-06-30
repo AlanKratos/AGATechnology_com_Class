@@ -29,7 +29,7 @@ implementation
 
 {%CLASSGROUP 'Vcl.Controls.TControl'}
 
-uses ClassCidade;
+uses ClassCidade, ClassPaiCadastro;
 
 {$R *.dfm}
 
@@ -37,7 +37,7 @@ procedure TdmCadCidade.DataModuleCreate(Sender: TObject);
 begin
   inherited;
   QueryCadastro.SQL.Add(TClassCidade.SQLBaseCadastro);
-  TClassCidade.AdicionarCampos(QueryCadastro);
+  QueryCadastro.DataSetField := TClassPaiCadastro.Helper.AdicionarCampos;
 
   tabela := TClassCidade.TabelaPrincipal;
   campochave := TClassCidade.CampoChave;
